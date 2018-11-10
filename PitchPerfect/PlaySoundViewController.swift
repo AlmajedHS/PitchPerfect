@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class PlaySoundViewController: UIViewController {
-
+    
     
     @IBOutlet weak var snailButton: UIButton!
     @IBOutlet weak var rabbitButton: UIButton!
@@ -30,9 +30,9 @@ class PlaySoundViewController: UIViewController {
     enum ButtonType: Int {
         case slow = 0, fast, chipmunk, vader, echo, reverb
     }
-
     
-     @IBAction func playSoundForButton(_ sender: Any) {
+    
+    @IBAction func playSoundForButton(_ sender: Any) {
         switch (ButtonType(rawValue: (sender as AnyObject).tag)!) {
         case .slow:
             playSound(rate: 0.5)
@@ -46,12 +46,12 @@ class PlaySoundViewController: UIViewController {
             playSound(echo: true )
         case .reverb:
             playSound(reverb: true)
-        
+            
         }
         configureUI(.playing)
     }
-     @IBAction func stopButtonPressed(_ sender: Any) {
-       
+    @IBAction func stopButtonPressed(_ sender: Any) {
+        
         stopAudio()
     }
     override func viewDidLoad() {
@@ -63,13 +63,13 @@ class PlaySoundViewController: UIViewController {
         super.viewWillAppear(animated)
         configureUI(.notPlaying)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
     
-
+    
+    
 }

@@ -10,8 +10,8 @@ import UIKit
 import AVFoundation
 
 class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
-
-   
+    
+    
     
     @IBOutlet weak var recordingStateLabel: UILabel!
     @IBOutlet weak var startRecordingLabel: UIButton!
@@ -28,15 +28,15 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
         super.viewWillAppear(animated)
         updateUI(isRecording: false)
     }
-   
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func startRecording(_ sender: Any) {
-       updateUI(isRecording: true)
+        updateUI(isRecording: true)
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
@@ -65,7 +65,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag{
-        performSegue(withIdentifier: "stopRecordingSegue", sender: audioRecorder.url)
+            performSegue(withIdentifier: "stopRecordingSegue", sender: audioRecorder.url)
         }else{
             print("error : \(flag)")
         }
