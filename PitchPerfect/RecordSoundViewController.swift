@@ -27,6 +27,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI(isRecording: false)
+        
     }
     
     

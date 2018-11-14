@@ -62,6 +62,10 @@ class PlaySoundViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureUI(.notPlaying)
+        for button:UIButton in [snailButton, rabbitButton, highPitchButton, lowPitchButton, echoButton, reverbButton] {
+            button.contentMode = .scaleAspectFit
+            button.imageView?.contentMode = .scaleAspectFit
+        }
     }
     
     override func didReceiveMemoryWarning() {
