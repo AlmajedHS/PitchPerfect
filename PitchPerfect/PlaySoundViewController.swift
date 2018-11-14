@@ -32,20 +32,22 @@ class PlaySoundViewController: UIViewController {
     }
     
     
-    @IBAction func playSoundForButton(_ sender: Any) {
-        switch (ButtonType(rawValue: (sender as AnyObject).tag)!) {
-        case .slow:
+    @IBAction func playSoundForButton(_ sender: UIButton) {
+        switch (ButtonType(rawValue: sender.tag)) {
+        case .slow?:
             playSound(rate: 0.5)
-        case .fast:
+        case .fast?:
             playSound(rate: 1.5)
-        case .chipmunk:
+        case .chipmunk?:
             playSound(pitch: 1000)
-        case .vader:
+        case .vader?:
             playSound(pitch: -1000)
-        case .echo:
+        case .echo?:
             playSound(echo: true )
-        case .reverb:
+        case .reverb?:
             playSound(reverb: true)
+            
+        case .none: break
             
         }
         configureUI(.playing)
@@ -68,10 +70,7 @@ class PlaySoundViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
     
     
